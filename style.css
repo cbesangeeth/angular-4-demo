@@ -1,0 +1,19 @@
+/* Styles go here */
+	.abs {
+		position: absolute;
+		width: 50%;
+		border: 1px solid;
+		color: gray;
+	}
+
+	.rel {
+		position: relative;
+		width: 30%;
+		border: 1px solid;
+		color: red;
+		left: 100%;
+	}
+	.width80{
+		width: 80%;
+	}
+
