@@ -1,0 +1,37 @@
+{{name}}
+
+<p>result1 :</p>
+
+<div class="abs">
+  <div *ngFor="let x of InsurencObj.product">
+    <span (click)="expandClick(x)">{{x.Name}} </span>
+    <div *ngIf="x.showObj == true" class="rel">
+      <div *ngFor="let y of x.Entity">
+        <div *ngIf="y.isCustom == true">
+          <input type="text" [(ngModel)]="y.Name" class="width80" />
+          <input type="checkbox" [(ngModel)]="y.isSelected" />
+        </div>
+        <div *ngIf="y.isCustom == false">
+          <span (click)="expandClick(y)">{{y.Name}}</span>
+          <input type="checkbox" [(ngModel)]="y.isSelected" />
+        </div>
+        <div *ngIf="y.showObj == true" class="rel">
+          <div *ngFor="let z of y.Attribute">
+            <div *ngIf="z.isCustom == true">
+              <input type="text" [(ngModel)]="z.Name" class="width80" />
+              <input type="checkbox" [(ngModel)]="z.isSelected" />
+            </div>
+            <div *ngIf="z.isCustom == false">
+              <span>{{z.Name}}</span>
+              <input type="checkbox" [(ngModel)]="z.isSelected" />
+            </div>
+          </div>
+          <div (click)="addObj(y.Attribute)">--Add--</div>
+        </div>
+      </div>
+      <div (click)="addObj(x.Entity)">--Add--</div>
+    </div>
+  </div>
+</div>
+
+<!--<p-tree [value]="sampleTree"></p-tree>-->
